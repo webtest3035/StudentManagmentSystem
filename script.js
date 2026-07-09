@@ -6,6 +6,11 @@ const courseInput = document.getElementById("StudentCourseInput");
 const addStudent = document.getElementById("addStudent");
 const updateStudent = document.getElementById("updateStudent");
 const table = document.querySelector("table");
+const pagination = document.getElementById("pagination");
+
+let currentPage = 1;
+let itemsPerPage = 5;
+let allStudents = 0;
 
 displayStudentsData();
 
@@ -13,7 +18,7 @@ async function displayStudentsData() {
 
     try {
 
-        let response = await fetch(`${apiUrl}`);
+        let response = await fetch(`${apiUrl}?_page=${currentPage}&_per_page=${itemsPerPage}`);
 
         if (!response.ok) {
             throw new Error("response is not ok !");
@@ -21,7 +26,11 @@ async function displayStudentsData() {
 
         let result = await response.json();
 
-        getTabel(result);
+        let students = result.data;
+        allStudents = result.items;
+
+        getTabel(students);
+        createPagination();
 
     }
 
@@ -182,7 +191,6 @@ updateStudent.addEventListener("click", async () => {
     }
 });
 
-
 function isInputValid(name, age) {
 
     const regex = /^[A-Za-z ]+$/;
@@ -229,20 +237,81 @@ function clearForm() {
 
 function getTabel(input) {
 
+    let startIndex = (currentPage - 1) * itemsPerPage;
 
     let rows = input.map((student, index) =>
         `<tr>
-                    <td>${index + 1}</td>
-                    <td>${student.name}</td>
-                    <td>${student.age}</td>
-                    <td>${student.gender}</td>
-                    <td>${student.course}</td>
-                    <td>
-                        <button class="editStudent" data-id="${student.id}">Edit</button>
-                        <button class="deleteStudent" data-id="${student.id}">Delete</button>
-                    </td>
-             </tr>`
-    ).join("");
+            <td>${startIndex + index + 1}</td>
+            <td>${student.name}</td>
+            <td>${student.age}</td>
+            <td>${student.gender}</td>
+            <td>${student.course}</td>
+            <td>
+                <button class="editStudent" data-id="${student.id}">Edit</button>
+                <button class="deleteStudent" data-id="${student.id}">Delete</button>
+            </td>
+        </tr>`).join("");
 
     document.getElementById("studentsData").innerHTML = rows;
+};
+
+function createPagination() {
+
+    let totalPages = Math.ceil(allStudents / itemsPerPage);
+
+    if (currentPage === 1) {
+
+        document.getElementById("previousPage").style.display = "none";
+    }
+    else {
+        document.getElementById("previousPage").style.display = "inline-block";
+    }
+
+    if (currentPage === totalPages) {
+        document.getElementById("nextPage").style.display = "none";
+    }
+    else {
+        document.getElementById("nextPage").style.display = "inline-block";
+    }
+
+};
+
+pagination.addEventListener("click", (event) => {
+
+    if (event.target.id === "previousPage") {
+        previous();
+    }
+
+    if (event.target.id === "nextPage") {
+        next();
+    }
+});
+
+function next() {
+
+    let totalPages = Math.ceil(allStudents / itemsPerPage);
+
+    if (currentPage < totalPages) {
+        currentPage++;
+        displayStudentsData();
+        pageChange();
+    }
+};
+
+function previous() {
+
+    if (currentPage > 1) {
+        currentPage--;
+        displayStudentsData();
+        pageChange();
+    }
+};
+
+function pageChange() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 };
