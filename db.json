@@ -1,0 +1,172 @@
+{
+  "students": [
+    {
+      "name": "Mary Jane Watson",
+      "age": 29,
+      "gender": "Female",
+      "course": "BA",
+      "id": "uEMO3WTWpAo"
+    },
+    {
+      "name": "Md Arif Hossain",
+      "age": 26,
+      "gender": "Male",
+      "course": "BBA",
+      "id": "DdoQHo0Y1zc"
+    },
+    {
+      "name": "Shah Rukh Khan",
+      "age": 60,
+      "gender": "Male",
+      "course": "BCOM",
+      "id": "rcgmSFxTVq4"
+    },
+    {
+      "name": "Ramesk Kumar",
+      "age": 24,
+      "gender": "Male",
+      "course": "BCA",
+      "id": "Ndw1TiWEX2w"
+    },
+    {
+      "name": "Pooja Singh",
+      "age": 24,
+      "gender": "Female",
+      "course": "BCOM",
+      "id": "zZDf9yCZl7M"
+    },
+    {
+      "name": "Aarav Sharma",
+      "age": 19,
+      "gender": "Male",
+      "course": "BCA",
+      "id": "std001Aarav"
+    },
+    {
+      "name": "Priya Verma",
+      "age": 20,
+      "gender": "Female",
+      "course": "BA",
+      "id": "std002Priya"
+    },
+    {
+      "name": "Rohan Gupta",
+      "age": 21,
+      "gender": "Male",
+      "course": "BCOM",
+      "id": "std003Rohan"
+    },
+    {
+      "name": "Ananya Singh",
+      "age": 19,
+      "gender": "Female",
+      "course": "BBA",
+      "id": "std004Ananya"
+    },
+    {
+      "name": "Vikram Patel",
+      "age": 22,
+      "gender": "Male",
+      "course": "BAIT",
+      "id": "std005Vikram"
+    },
+    {
+      "name": "Sneha Joshi",
+      "age": 20,
+      "gender": "Female",
+      "course": "BCA",
+      "id": "std006Sneha"
+    },
+    {
+      "name": "Karan Mehta",
+      "age": 23,
+      "gender": "Male",
+      "course": "BCOM",
+      "id": "std007Karan"
+    },
+    {
+      "name": "Ishita Kapoor",
+      "age": 21,
+      "gender": "Female",
+      "course": "BA",
+      "id": "std008Ishita"
+    },
+    {
+      "name": "Rahul Nair",
+      "age": 20,
+      "gender": "Male",
+      "course": "BBA",
+      "id": "std009Rahul"
+    },
+    {
+      "name": "Pooja Yadav",
+      "age": 19,
+      "gender": "Female",
+      "course": "BAIT",
+      "id": "std010Pooja"
+    },
+    {
+      "name": "Aditya Mishra",
+      "age": 22,
+      "gender": "Male",
+      "course": "BCA",
+      "id": "std011Aditya"
+    },
+    {
+      "name": "Neha Agarwal",
+      "age": 21,
+      "gender": "Female",
+      "course": "BCOM",
+      "id": "std012Neha"
+    },
+    {
+      "name": "Arjun Reddy",
+      "age": 20,
+      "gender": "Male",
+      "course": "BA",
+      "id": "std013Arjun"
+    },
+    {
+      "name": "Kavya Iyer",
+      "age": 19,
+      "gender": "Female",
+      "course": "BBA",
+      "id": "std014Kavya"
+    },
+    {
+      "name": "Manish Kumar",
+      "age": 23,
+      "gender": "Male",
+      "course": "BAIT",
+      "id": "std015Manish"
+    },
+    {
+      "name": "Ritika Chawla",
+      "age": 20,
+      "gender": "Female",
+      "course": "BCA",
+      "id": "std016Ritika"
+    },
+    {
+      "name": "Siddharth Jain",
+      "age": 22,
+      "gender": "Male",
+      "course": "BCOM",
+      "id": "std017Siddharth"
+    },
+    {
+      "name": "Meera Desai",
+      "age": 21,
+      "gender": "Female",
+      "course": "BA",
+      "id": "std018Meera"
+    },
+    {
+      "name": "Yash Malhotra",
+      "age": 19,
+      "gender": "Male",
+      "course": "BBA",
+      "id": "std019Yash"
+    }
+  ]
+}
