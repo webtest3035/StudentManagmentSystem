@@ -5,6 +5,7 @@ const genderInput = document.getElementById("StudentGenderInput");
 const courseInput = document.getElementById("StudentCourseInput");
 const addStudent = document.getElementById("addStudent");
 const updateStudent = document.getElementById("updateStudent");
+const table = document.querySelector("table");
 
 displayStudentsData();
 
@@ -78,6 +79,109 @@ addStudent.addEventListener("click", async () => {
         console.error(error);
     }
 });
+
+table.addEventListener("click", (event) => {
+
+    if (event.target.classList.contains("deleteStudent")) {
+        deleteStudent(event.target.dataset.id);
+    }
+
+    if (event.target.classList.contains("editStudent")) {
+        editStudent(event.target.dataset.id);
+    }
+
+});
+
+async function deleteStudent(id) {
+
+    let confirmDelete = confirm("Are you sure you want to delete ?");
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    try {
+        await fetch(`${apiUrl}/${id}`, {
+            method: "DELETE"
+        });
+
+        await displayStudentsData();
+    }
+
+    catch (error) {
+        console.error("Error in Delition:", error);
+    }
+};
+
+let editingId = null;
+
+async function editStudent(id) {
+
+    try {
+        let response = await fetch(`${apiUrl}/${id}`);
+
+        if (!response.ok) {
+            throw new Error("Update failed");
+        }
+
+        let student = await response.json();
+
+        editingId = id;
+
+        document.getElementById("studentName").value = student.name;
+        document.getElementById("studentAge").value = student.age;
+        document.getElementById("StudentGenderInput").value = student.gender;
+        document.getElementById("StudentCourseInput").value = student.course;
+        document.getElementById("addStudent").style.display = "none";
+        document.getElementById("updateStudent").style.display = "inline-block";
+    }
+
+    catch (error) {
+        console.error("Could Not Update Data:", error);
+    }
+};
+
+updateStudent.addEventListener("click", async () => {
+
+    let name = nameInput.value;
+    let age = Number(ageInput.value);
+    let gender = genderInput.value;
+    let course = courseInput.value;
+
+    if (!isInputValid(name, age)) {
+        return;
+    }
+
+    name = capitalizeName(name);
+
+    let updateStudent = {
+        name,
+        age,
+        gender,
+        course
+    };
+
+    try {
+        await fetch(`${apiUrl}/${editingId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updateStudent)
+        })
+
+        await displayStudentsData();
+
+        clearForm();
+
+        alert(`${name} is Updated !`)
+    }
+
+    catch (error) {
+        console.error("Error in Update:", error);
+    }
+});
+
 
 function isInputValid(name, age) {
 
