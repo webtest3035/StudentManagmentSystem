@@ -13,13 +13,13 @@
     <body>
         <div class="tabel-page">
             <h1>Student Management System</h1>
-    
+
             <div class="table-Form">
-    
+
                 <div class="table-form-inputs">
                     <label for="studentName">Student Name</label>
                     <input type="text" id="studentName" placeholder="Enter Here">
-    
+
                 </div>
                 <div class="table-form-inputs">
                     <label for="studentAge">Student Age</label>
@@ -31,7 +31,7 @@
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
-    
+
                 </div>
                 <div class="table-form-inputs">
                     <label for="StudentCourseInput">Select Your Course</label>
@@ -42,16 +42,16 @@
                         <option value="BBA">BBA</option>
                         <option value="BAIT">BAIT</option>
                     </select>
-    
+
                 </div>
                 <div class="table-form-buttons">
                     <button id="addStudent">+ ADD Students</button>
                     <button id="updateStudent">Update Student</button>
                 </div>
-    
+
             </div>
             <table class="table">
-    
+
                 <thead class="table">
                     <tr>
                         <th class="table">Sr. No.</th>
@@ -64,16 +64,20 @@
                 </thead>
                 <tbody id="studentsData" class="table"></tbody>
             </table>
+            <div id="loading">
+                <h3>Loading...</h3>
+            </div>
         </div>
-    
+        
+
         <div class="pagination" id="pagination">
             <button class="paginationButtons" id="previousPage">Prev</button>
             <button class="paginationButtons" id="nextPage">Next</button>
         </div>
-        
+
 </main>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>

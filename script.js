@@ -7,7 +7,7 @@ const addStudent = document.getElementById("addStudent");
 const updateStudent = document.getElementById("updateStudent");
 const table = document.querySelector("table");
 const pagination = document.getElementById("pagination");
-
+const loading = document.getElementById("loading");
 let currentPage = 1;
 let itemsPerPage = 5;
 let allStudents = 0;
@@ -15,6 +15,8 @@ let allStudents = 0;
 displayStudentsData();
 
 async function displayStudentsData() {
+
+    showLoading();
 
     try {
 
@@ -36,6 +38,10 @@ async function displayStudentsData() {
 
     catch (error) {
         console.error("Could Not Fetch Data:", error);
+    }
+
+    finally {
+        hideLoading();
     }
 
 };
@@ -315,3 +321,14 @@ function pageChange() {
     });
 
 };
+
+
+function showLoading() {
+    loading.style.display = "block";
+    table.style.display = "none"
+}
+
+function hideLoading() {
+    loading.style.display = "none";
+    table.style.display = "table"
+}
