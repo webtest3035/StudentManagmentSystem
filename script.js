@@ -66,6 +66,8 @@ addStudent.addEventListener("click", async () => {
         course
     };
 
+    showLoading();
+
     try {
 
         let response = await fetch(apiUrl, {
@@ -93,6 +95,10 @@ addStudent.addEventListener("click", async () => {
     catch (error) {
         console.error(error);
     }
+
+    finally {
+        hideLoading();
+    }
 });
 
 table.addEventListener("click", (event) => {
@@ -115,6 +121,8 @@ async function deleteStudent(id) {
         return;
     }
 
+    showLoading();
+
     try {
         await fetch(`${apiUrl}/${id}`, {
             method: "DELETE"
@@ -126,11 +134,17 @@ async function deleteStudent(id) {
     catch (error) {
         console.error("Error in Delition:", error);
     }
+
+    finally {
+        hideLoading();
+    }
 };
 
 let editingId = null;
 
 async function editStudent(id) {
+
+    showLoading();
 
     try {
         let response = await fetch(`${apiUrl}/${id}`);
@@ -154,6 +168,10 @@ async function editStudent(id) {
     catch (error) {
         console.error("Could Not Update Data:", error);
     }
+
+    finally {
+        hideLoading();
+    }
 };
 
 updateStudent.addEventListener("click", async () => {
@@ -176,6 +194,8 @@ updateStudent.addEventListener("click", async () => {
         course
     };
 
+    showLoading();
+
     try {
         await fetch(`${apiUrl}/${editingId}`, {
             method: "PUT",
@@ -194,6 +214,10 @@ updateStudent.addEventListener("click", async () => {
 
     catch (error) {
         console.error("Error in Update:", error);
+    }
+
+    finally {
+        hideLoading();
     }
 });
 
