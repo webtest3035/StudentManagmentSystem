@@ -325,6 +325,7 @@ function next() {
         currentPage++;
         displayStudentsData();
         pageChange();
+        clearForm();
     }
 };
 
@@ -334,6 +335,7 @@ function previous() {
         currentPage--;
         displayStudentsData();
         pageChange();
+        clearForm();
     }
 };
 
