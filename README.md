@@ -7,3 +7,7 @@ Features :- track students,  add student, update student details, delete student
 Open This Project :- https://webtest3035.github.io/StudentManagmentSystem/
 
 Language Used :- HTML, CSS, JavaScript
+
+Image :- 
+
+![Home Page](img/Student-Managment-System.png)
